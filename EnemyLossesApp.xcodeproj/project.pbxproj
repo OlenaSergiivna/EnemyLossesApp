@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2B093E2A98CC5900E62E01 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B093D2A98CC5900E62E01 /* NetworkService.swift */; };
+		CE2B09402A98CCEB00E62E01 /* EquipmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B093F2A98CCEB00E62E01 /* EquipmentModel.swift */; };
+		CE2B09432A98D5B300E62E01 /* PersonnelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B09422A98D5B300E62E01 /* PersonnelModel.swift */; };
+		CE2B09472A98DA9500E62E01 /* EquipmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B09462A98DA9500E62E01 /* EquipmentService.swift */; };
+		CE2B09492A99171B00E62E01 /* PersonnelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B09482A99171B00E62E01 /* PersonnelService.swift */; };
 		CE633A792A97AF5300BB521A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633A782A97AF5300BB521A /* AppDelegate.swift */; };
 		CE633A7B2A97AF5300BB521A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633A7A2A97AF5300BB521A /* SceneDelegate.swift */; };
 		CE633A822A97AF5600BB521A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE633A812A97AF5600BB521A /* Assets.xcassets */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE2B093D2A98CC5900E62E01 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		CE2B093F2A98CCEB00E62E01 /* EquipmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentModel.swift; sourceTree = "<group>"; };
+		CE2B09422A98D5B300E62E01 /* PersonnelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelModel.swift; sourceTree = "<group>"; };
+		CE2B09462A98DA9500E62E01 /* EquipmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentService.swift; sourceTree = "<group>"; };
+		CE2B09482A99171B00E62E01 /* PersonnelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelService.swift; sourceTree = "<group>"; };
 		CE633A752A97AF5300BB521A /* EnemyLossesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnemyLossesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE633A782A97AF5300BB521A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE633A7A2A97AF5300BB521A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +61,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE2B093C2A98CBCA00E62E01 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B093D2A98CC5900E62E01 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CE2B09412A98CCF500E62E01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B093F2A98CCEB00E62E01 /* EquipmentModel.swift */,
+				CE2B09422A98D5B300E62E01 /* PersonnelModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE2B09442A98DA6B00E62E01 /* EquipmentData */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B09462A98DA9500E62E01 /* EquipmentService.swift */,
+			);
+			path = EquipmentData;
+			sourceTree = "<group>";
+		};
+		CE2B09452A98DA7700E62E01 /* PersonnelData */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B09482A99171B00E62E01 /* PersonnelService.swift */,
+			);
+			path = PersonnelData;
+			sourceTree = "<group>";
+		};
 		CE633A6C2A97AF5300BB521A = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +127,10 @@
 		CE633A8C2A97B02500BB521A /* Bussiness */ = {
 			isa = PBXGroup;
 			children = (
+				CE2B09442A98DA6B00E62E01 /* EquipmentData */,
+				CE2B09452A98DA7700E62E01 /* PersonnelData */,
+				CE2B09412A98CCF500E62E01 /* Models */,
+				CE2B093C2A98CBCA00E62E01 /* Network */,
 			);
 			path = Bussiness;
 			sourceTree = "<group>";
@@ -199,15 +246,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE633A922A97B52C00BB521A /* MainViewCoordinator.swift in Sources */,
+				CE2B09472A98DA9500E62E01 /* EquipmentService.swift in Sources */,
 				CE633A792A97AF5300BB521A /* AppDelegate.swift in Sources */,
+				CE2B09402A98CCEB00E62E01 /* EquipmentModel.swift in Sources */,
 				CE633A7B2A97AF5300BB521A /* SceneDelegate.swift in Sources */,
+				CE2B09432A98D5B300E62E01 /* PersonnelModel.swift in Sources */,
 				CE633A942A97B54E00BB521A /* MainViewController.swift in Sources */,
 				CE633AA32A97B68800BB521A /* PersonnelViewController.swift in Sources */,
+				CE2B09492A99171B00E62E01 /* PersonnelService.swift in Sources */,
 				CE633A9D2A97B5F500BB521A /* EquipmentViewController.swift in Sources */,
 				CE633AA12A97B63100BB521A /* PersonnelViewModel.swift in Sources */,
 				CE633A962A97B55900BB521A /* MainViewModel.swift in Sources */,
 				CE633A992A97B5B500BB521A /* EquipmentViewCoordinator.swift in Sources */,
 				CE633A9F2A97B61D00BB521A /* PersonnelViewCoordinator.swift in Sources */,
+				CE2B093E2A98CC5900E62E01 /* NetworkService.swift in Sources */,
 				CE633A9B2A97B5E400BB521A /* EquipmentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
