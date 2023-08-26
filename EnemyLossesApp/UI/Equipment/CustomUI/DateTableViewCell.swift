@@ -1,5 +1,5 @@
 //
-//  EquipmentTableViewCell.swift
+//  DateTableViewCell.swift
 //  EnemyLossesApp
 //
 //  Created by user on 25.08.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EquipmentTableViewCell: UITableViewCell {
+class DateTableViewCell: UITableViewCell {
 
     let backView: UIImageView = {
         let backView = UIImageView()
@@ -75,19 +75,31 @@ class EquipmentTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(with data: Equipment) {
-//        dateLabel.text = data.date
+    
+    func configure(with data: LossesDataTypes) {
         
-        let result = getFormattedData(for: data.date)
-        if case let .success(formattedDate) = result {
-            dateLabel.text = formattedDate
+        switch data {
+            
+        case .equipment(let equipment):
+            let result = getFormattedData(for: equipment.date)
+            if case let .success(formattedDate) = result {
+                dateLabel.text = formattedDate
+            }
+            
+            guard let day = equipment.day else { return }
+            dayLabel.text = "Day \(day)"
+            
+        case .personnel(let personnel):
+            let result = getFormattedData(for: personnel.date)
+            if case let .success(formattedDate) = result {
+                dateLabel.text = formattedDate
+            }
+            
+            guard let day = personnel.day else { return }
+            dayLabel.text = "Day \(day)"
         }
-
-        guard let day = data.day else { return }
-        dayLabel.text = "Day \(day)"
-        
-        
     }
+    
     
     func getFormattedData(for date: String) -> Result<String, Error> {
         let dateFormatter = DateFormatter()
@@ -108,4 +120,10 @@ class EquipmentTableViewCell: UITableViewCell {
 
 enum GeneralErrors: Error {
     case failedWhenFormattingInitialDate
+}
+
+
+enum LossesDataTypes {
+    case equipment(Equipment)
+    case personnel(Personnel)
 }

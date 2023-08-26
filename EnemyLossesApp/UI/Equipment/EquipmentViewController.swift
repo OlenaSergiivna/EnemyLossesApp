@@ -17,7 +17,7 @@ class EquipmentViewController: UIViewController {
     private let equipmentTableView: UITableView = {
         let equipmentTableView = UITableView()
         equipmentTableView.translatesAutoresizingMaskIntoConstraints = false
-        equipmentTableView.register(EquipmentTableViewCell.self, forCellReuseIdentifier: "\(EquipmentTableViewCell.self)")
+        equipmentTableView.register(DateTableViewCell.self, forCellReuseIdentifier: "\(DateTableViewCell.self)")
         equipmentTableView.backgroundColor = UIColor(red: 69/255, green: 62/255, blue: 46/255, alpha: 1)
         
         return equipmentTableView
@@ -39,6 +39,7 @@ class EquipmentViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 69/255, green: 62/255, blue: 46/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = .white
         view.addSubview(equipmentTableView)
         setupLayout()
         
@@ -73,22 +74,25 @@ extension EquipmentViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = equipmentTableView.dequeueReusableCell(withIdentifier: "\(EquipmentTableViewCell.self)", for: indexPath) as? EquipmentTableViewCell else {
+        guard let cell = equipmentTableView.dequeueReusableCell(withIdentifier: "\(DateTableViewCell.self)", for: indexPath) as? DateTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.configure(with: viewModel.equipment[indexPath.row])
+        cell.configure(with: .equipment(viewModel.equipment[indexPath.row]))
         
         return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
     }
 }
 
 
 extension EquipmentViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let showDetails = viewModel.showDetails else { return }
+        showDetails(viewModel.equipment[indexPath.row])
+    }
 }

@@ -16,7 +16,7 @@ class EquipmentViewModel {
     
     @Published var equipment: [Equipment] = []
     
-    var showDetail: ((Equipment) -> Void)?
+    var showDetails: ((Equipment) -> Void)?
     
     init() {
         equipmentService.getEquipmentData()
