@@ -23,7 +23,7 @@ class EquipmentTableViewCell: UITableViewCell {
         let dayLabel = UILabel()
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         dayLabel.textAlignment = .left
-        dayLabel.font = .systemFont(ofSize: 28, weight: .medium)
+        dayLabel.font = .systemFont(ofSize: 28, weight: .regular)
         dayLabel.textColor = UIColor(red: 255/255, green: 140/255, blue: 9/255, alpha: 1)
         return dayLabel
     }()
@@ -76,9 +76,36 @@ class EquipmentTableViewCell: UITableViewCell {
     }
     
     func configure(with data: Equipment) {
-        dateLabel.text = data.date
+//        dateLabel.text = data.date
         
+        let result = getFormattedData(for: data.date)
+        if case let .success(formattedDate) = result {
+            dateLabel.text = formattedDate
+        }
+
         guard let day = data.day else { return }
         dayLabel.text = "Day \(day)"
+        
+        
     }
+    
+    func getFormattedData(for date: String) -> Result<String, Error> {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        guard let initialDate = dateFormatter.date(from: date) else {
+            return .failure(GeneralErrors.failedWhenFormattingInitialDate)
+        }
+        
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        let formattedDate = dateFormatter.string(from: initialDate)
+        
+        return .success(formattedDate)
+    }
+}
+
+
+enum GeneralErrors: Error {
+    case failedWhenFormattingInitialDate
 }
