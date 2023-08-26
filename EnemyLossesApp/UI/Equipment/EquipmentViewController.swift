@@ -17,8 +17,8 @@ class EquipmentViewController: UIViewController {
     private let equipmentTableView: UITableView = {
         let equipmentTableView = UITableView()
         equipmentTableView.translatesAutoresizingMaskIntoConstraints = false
-        equipmentTableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
-        equipmentTableView.backgroundColor = .systemGreen
+        equipmentTableView.register(EquipmentTableViewCell.self, forCellReuseIdentifier: "\(EquipmentTableViewCell.self)")
+        equipmentTableView.backgroundColor = UIColor(red: 69/255, green: 62/255, blue: 46/255, alpha: 1)
         
         return equipmentTableView
     }()
@@ -38,10 +38,12 @@ class EquipmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
-        
+        view.backgroundColor = UIColor(red: 69/255, green: 62/255, blue: 46/255, alpha: 1)
         view.addSubview(equipmentTableView)
         setupLayout()
+        
+        equipmentTableView.delegate = self
+        equipmentTableView.dataSource = self
         
         viewModel.$equipment
             .receive(on: DispatchQueue.main)
@@ -60,4 +62,33 @@ class EquipmentViewController: UIViewController {
             equipmentTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+}
+
+
+extension EquipmentViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.equipment.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = equipmentTableView.dequeueReusableCell(withIdentifier: "\(EquipmentTableViewCell.self)", for: indexPath) as? EquipmentTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.configure(with: viewModel.equipment[indexPath.row])
+        
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+}
+
+
+extension EquipmentViewController: UITableViewDelegate {
+    
 }

@@ -21,6 +21,7 @@ class EquipmentService {
     func getEquipmentData() {
         NetworkService.shared.getEquipmentLossesData()
             .receive(on: DispatchQueue.main)
+            .map({$0.reversed()})
             .sink { _ in
             } receiveValue: { [weak self] equipment in
                 self?.equipment.value = equipment
