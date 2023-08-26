@@ -24,15 +24,13 @@ class MainViewController: UIViewController {
         buttonConfiguration.attributedTitle = attText
         
         var background = buttonConfiguration.background
-        background.backgroundColor = .black
+        background.backgroundColor = UIColor(red: 79/255, green: 70/255, blue: 52/255, alpha: 1)
         background.cornerRadius = 20
         background.strokeWidth = 2
-        background.strokeColor = .magenta
+        background.strokeColor = UIColor(red: 255/255, green: 140/255, blue: 9/255, alpha: 1)
         buttonConfiguration.background = background
         
         equipmentButton.configuration = buttonConfiguration
-        
-        equipmentButton.addTarget(self, action: #selector(equipmentButtonPressed(_:)), for: .touchUpInside)
         
         return equipmentButton
     }()
@@ -53,15 +51,13 @@ class MainViewController: UIViewController {
         buttonConfiguration.attributedTitle = attText
         
         var background = buttonConfiguration.background
-        background.backgroundColor = .black
+        background.backgroundColor = UIColor(red: 79/255, green: 70/255, blue: 52/255, alpha: 1)
         background.cornerRadius = 20
         background.strokeWidth = 2
-        background.strokeColor = .magenta
+        background.strokeColor = UIColor(red: 255/255, green: 140/255, blue: 9/255, alpha: 1)
         buttonConfiguration.background = background
         
         personnelButton.configuration = buttonConfiguration
-        
-        personnelButton.addTarget(self, action: #selector(personnelButtonPressed(_:)), for: .touchUpInside)
         
         return personnelButton
     }()
@@ -84,11 +80,6 @@ class MainViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         
-        view.addSubview(buttonsStack)
-        buttonsStack.addArrangedSubview(equipmentButton)
-        buttonsStack.addArrangedSubview(personnelButton)
-        
-        configureConstraints()
     }
     
     
@@ -100,6 +91,16 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor(red: 69/255, green: 62/255, blue: 46/255, alpha: 1)
+        
+        view.addSubview(buttonsStack)
+        buttonsStack.addArrangedSubview(equipmentButton)
+        buttonsStack.addArrangedSubview(personnelButton)
+        
+        configureConstraints()
+        
+        equipmentButton.addTarget(self, action: #selector(equipmentButtonPressed(_:)), for: .touchUpInside)
+        personnelButton.addTarget(self, action: #selector(personnelButtonPressed(_:)), for: .touchUpInside)
     }
     
     
