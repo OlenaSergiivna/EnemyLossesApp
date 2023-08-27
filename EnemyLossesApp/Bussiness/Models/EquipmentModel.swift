@@ -10,10 +10,10 @@ import Foundation
 struct Equipment: Codable {
     
     let date: String
-    let day, aircraft, helicopter, tank: Int?
-    let apc, fieldArtillery, mrl: Int?
+    let day, aircraft, helicopter, tank: Int
+    let apc, fieldArtillery, mrl: Int
     let militaryAuto, fuelTank: Int?
-    let drone, navalShip, antiAircraftWarfare: Int?
+    let drone, navalShip, antiAircraftWarfare: Int
     let specialEquipment, mobileSRBMSystem: Int?
     let greatestLossesDirection: String?
     let vehiclesAndFuelTanks, cruiseMissiles: Int?

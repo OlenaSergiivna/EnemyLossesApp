@@ -86,8 +86,7 @@ class DateTableViewCell: UITableViewCell {
                 dateLabel.text = formattedDate
             }
             
-            guard let day = equipment.day else { return }
-            dayLabel.text = "Day \(day)"
+            dayLabel.text = "Day \(equipment.day)"
             
         case .personnel(let personnel):
             let result = getFormattedData(for: personnel.date)
@@ -110,8 +109,18 @@ class DateTableViewCell: UITableViewCell {
             return .failure(GeneralErrors.failedWhenFormattingInitialDate)
         }
         
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        let formattedDate = dateFormatter.string(from: initialDate)
+        
+        let dayOfMonth = Calendar.current.component(.day, from: initialDate)
+        let formattedDate: String
+        
+        if dayOfMonth < 10 {
+            dateFormatter.dateFormat = "d MMMM yyyy"
+            formattedDate = dateFormatter.string(from: initialDate)
+            
+        } else {
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            formattedDate = dateFormatter.string(from: initialDate)
+        }
         
         return .success(formattedDate)
     }

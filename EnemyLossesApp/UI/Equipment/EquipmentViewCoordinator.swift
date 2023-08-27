@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EquipmentViewCoordinator {
+class EquipmentViewCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     

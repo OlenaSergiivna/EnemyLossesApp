@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonnelViewCoordinator {
+class PersonnelViewCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
