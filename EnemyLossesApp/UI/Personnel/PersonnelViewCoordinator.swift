@@ -18,6 +18,12 @@ class PersonnelViewCoordinator: Coordinator {
     func start() {
         let personnelViewModel = PersonnelViewModel()
         
+        personnelViewModel.showDetails = { personnel in
+            let personnelDetailsViewModel = PersonnelDetailsViewModel(personnelData: personnel)
+            let personnelDetaisCoordinator = PersonnelDetailsViewCoordinator(navigationController: self.navigationController, viewModel: personnelDetailsViewModel)
+            personnelDetaisCoordinator.start()
+        }
+        
         let personnelViewController: PersonnelViewController = {
             let personnelViewController = PersonnelViewController(viewModel: personnelViewModel)
             return personnelViewController

@@ -35,6 +35,11 @@
 		CE633A9F2A97B61D00BB521A /* PersonnelViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633A9E2A97B61D00BB521A /* PersonnelViewCoordinator.swift */; };
 		CE633AA12A97B63100BB521A /* PersonnelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633AA02A97B63100BB521A /* PersonnelViewModel.swift */; };
 		CE633AA32A97B68800BB521A /* PersonnelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633AA22A97B68800BB521A /* PersonnelViewController.swift */; };
+		CECAF0992A9C1C55002C83D1 /* PersonnelDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAF0982A9C1C55002C83D1 /* PersonnelDetailsCoordinator.swift */; };
+		CECAF09B2A9C1C73002C83D1 /* PersonnelDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAF09A2A9C1C73002C83D1 /* PersonnelDetailsViewModel.swift */; };
+		CECAF09D2A9C1C91002C83D1 /* PersonnelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAF09C2A9C1C91002C83D1 /* PersonnelDetailsViewController.swift */; };
+		CECAF0A02A9C1F9C002C83D1 /* PersonnelDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAF09F2A9C1F9C002C83D1 /* PersonnelDetailsView.swift */; };
+		CECAF0A42A9C2649002C83D1 /* PersonnelStackElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAF0A32A9C2649002C83D1 /* PersonnelStackElementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +73,11 @@
 		CE633A9E2A97B61D00BB521A /* PersonnelViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelViewCoordinator.swift; sourceTree = "<group>"; };
 		CE633AA02A97B63100BB521A /* PersonnelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelViewModel.swift; sourceTree = "<group>"; };
 		CE633AA22A97B68800BB521A /* PersonnelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelViewController.swift; sourceTree = "<group>"; };
+		CECAF0982A9C1C55002C83D1 /* PersonnelDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelDetailsCoordinator.swift; sourceTree = "<group>"; };
+		CECAF09A2A9C1C73002C83D1 /* PersonnelDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelDetailsViewModel.swift; sourceTree = "<group>"; };
+		CECAF09C2A9C1C91002C83D1 /* PersonnelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelDetailsViewController.swift; sourceTree = "<group>"; };
+		CECAF09F2A9C1F9C002C83D1 /* PersonnelDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelDetailsView.swift; sourceTree = "<group>"; };
+		CECAF0A32A9C2649002C83D1 /* PersonnelStackElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelStackElementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +220,7 @@
 				CE633A8F2A97B03D00BB521A /* Equipment */,
 				CE633A902A97B04600BB521A /* Personnel */,
 				CE2E27A62A9A44F700AC2EFC /* DetailsEquipment */,
+				CECAF0972A9C1C2C002C83D1 /* DetailsPersonnel */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -243,6 +254,26 @@
 				CE633AA02A97B63100BB521A /* PersonnelViewModel.swift */,
 			);
 			path = Personnel;
+			sourceTree = "<group>";
+		};
+		CECAF0972A9C1C2C002C83D1 /* DetailsPersonnel */ = {
+			isa = PBXGroup;
+			children = (
+				CECAF0982A9C1C55002C83D1 /* PersonnelDetailsCoordinator.swift */,
+				CECAF09C2A9C1C91002C83D1 /* PersonnelDetailsViewController.swift */,
+				CECAF09A2A9C1C73002C83D1 /* PersonnelDetailsViewModel.swift */,
+				CECAF09E2A9C1F79002C83D1 /* CustomUI */,
+			);
+			path = DetailsPersonnel;
+			sourceTree = "<group>";
+		};
+		CECAF09E2A9C1F79002C83D1 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				CECAF09F2A9C1F9C002C83D1 /* PersonnelDetailsView.swift */,
+				CECAF0A32A9C2649002C83D1 /* PersonnelStackElementView.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,14 +352,18 @@
 				CE2E27A82A9A452F00AC2EFC /* EquipmentDetailsViewCoordinator.swift in Sources */,
 				CE633A922A97B52C00BB521A /* MainViewCoordinator.swift in Sources */,
 				CE2B09472A98DA9500E62E01 /* EquipmentService.swift in Sources */,
+				CECAF09B2A9C1C73002C83D1 /* PersonnelDetailsViewModel.swift in Sources */,
 				CE633A792A97AF5300BB521A /* AppDelegate.swift in Sources */,
 				CE2B09402A98CCEB00E62E01 /* EquipmentModel.swift in Sources */,
+				CECAF0A42A9C2649002C83D1 /* PersonnelStackElementView.swift in Sources */,
 				CE633A7B2A97AF5300BB521A /* SceneDelegate.swift in Sources */,
 				CE2B09432A98D5B300E62E01 /* PersonnelModel.swift in Sources */,
 				CE2E27B82A9AB9D800AC2EFC /* EquipmentDataTableViewCell.swift in Sources */,
 				CE2B094D2A99236500E62E01 /* DateTableViewCell.swift in Sources */,
+				CECAF09D2A9C1C91002C83D1 /* PersonnelDetailsViewController.swift in Sources */,
 				CE633A942A97B54E00BB521A /* MainViewController.swift in Sources */,
 				CE633AA32A97B68800BB521A /* PersonnelViewController.swift in Sources */,
+				CECAF0992A9C1C55002C83D1 /* PersonnelDetailsCoordinator.swift in Sources */,
 				CE2B09492A99171B00E62E01 /* PersonnelService.swift in Sources */,
 				CE2E27B42A9A911300AC2EFC /* MainStackElementView.swift in Sources */,
 				CE633A9D2A97B5F500BB521A /* EquipmentViewController.swift in Sources */,
@@ -336,6 +371,7 @@
 				CE2E27AF2A9A5DAE00AC2EFC /* EquipmentDetailsView.swift in Sources */,
 				CE633AA12A97B63100BB521A /* PersonnelViewModel.swift in Sources */,
 				CE633A962A97B55900BB521A /* MainViewModel.swift in Sources */,
+				CECAF0A02A9C1F9C002C83D1 /* PersonnelDetailsView.swift in Sources */,
 				CE633A992A97B5B500BB521A /* EquipmentViewCoordinator.swift in Sources */,
 				CE2E27A52A9A43EB00AC2EFC /* CoordinatorProtocol.swift in Sources */,
 				CE633A9F2A97B61D00BB521A /* PersonnelViewCoordinator.swift in Sources */,

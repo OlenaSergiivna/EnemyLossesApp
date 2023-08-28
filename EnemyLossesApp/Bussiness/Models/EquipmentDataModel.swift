@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct EquipmentData {
     let equipmentType: String
     let lossesNumber: Int

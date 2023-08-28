@@ -1,13 +1,13 @@
 //
-//  EquipmentDetailsView.swift
+//  PersonnelDetailsView.swift
 //  EnemyLossesApp
 //
-//  Created by user on 26.08.2023.
+//  Created by user on 27.08.2023.
 //
 
 import UIKit
 
-class EquipmentDetailsView: UIView {
+class PersonnelDetailsView: UIView {
     
     let dayLabel: UILabel = {
         let dayLabel = UILabel()
@@ -44,56 +44,24 @@ class EquipmentDetailsView: UIView {
     }()
     
     
-    let tanksView: MainStackElementView = {
-        let tanksView = MainStackElementView()
-        tanksView.equipmentNameLabel.text = "Tanks"
-        tanksView.equipmentImage.image = UIImage(named: "tank")?.withTintColor(.white)
-
-        return tanksView
+    let personnelView: PersonnelStackElementView = {
+        let personnelView = PersonnelStackElementView()
+        personnelView.personnelNameLabel.text = "Personnel"
+        
+        return personnelView
     }()
     
     
-    let helicoptersView: MainStackElementView = {
-        let helicoptersView = MainStackElementView()
-        helicoptersView.equipmentNameLabel.text = "Helicopters"
-        helicoptersView.equipmentImage.image = UIImage(named: "helicopter")?.withTintColor(.white)
+    let powView: PersonnelStackElementView = {
+        let powView = PersonnelStackElementView()
+        powView.personnelNameLabel.text = "Prisoners of war"
         
-        return helicoptersView
-    }()
-    
-    
-    let aircraftsView: MainStackElementView = {
-        let aircraftsView = MainStackElementView()
-        aircraftsView.equipmentNameLabel.text = "Aircrafts"
-        aircraftsView.equipmentImage.image = UIImage(named: "aircraft")?.withTintColor(.white)
-        
-        return aircraftsView
-    }()
-    
-    
-    let artillerySystemsView: MainStackElementView = {
-        let artillerySystemsView = MainStackElementView()
-        artillerySystemsView.equipmentNameLabel.text = "Artillery"
-        artillerySystemsView.equipmentImage.image = UIImage(named: "artillery")?.withTintColor(.white)
-        
-        return artillerySystemsView
-    }()
-    
-    
-    let detailedEquipmentLossesCollectionView: UICollectionView  = {
-        let layout = UICollectionViewFlowLayout()
-        let detailedEquipmentLossesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        detailedEquipmentLossesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        detailedEquipmentLossesCollectionView.backgroundColor = .clear
-        
-        return detailedEquipmentLossesCollectionView
+        return powView
     }()
     
     
     private var portraitConst: [NSLayoutConstraint] = []
     private var landscapeConst: [NSLayoutConstraint] = []
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -103,13 +71,8 @@ class EquipmentDetailsView: UIView {
         addSubview(dayLabel)
         addSubview(dateLabel)
         addSubview(mainLosseskStack)
-        
-        mainLosseskStack.addArrangedSubview(tanksView)
-        mainLosseskStack.addArrangedSubview(helicoptersView)
-        mainLosseskStack.addArrangedSubview(aircraftsView)
-        mainLosseskStack.addArrangedSubview(artillerySystemsView)
-        
-        addSubview(detailedEquipmentLossesCollectionView)
+        mainLosseskStack.addArrangedSubview(personnelView)
+        mainLosseskStack.addArrangedSubview(powView)
         
         setUpConstraints()
         
@@ -123,14 +86,14 @@ class EquipmentDetailsView: UIView {
         }
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setUpConstraints() {
-        
+
         portraitConst = [
+            
             dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
@@ -142,17 +105,12 @@ class EquipmentDetailsView: UIView {
             mainLosseskStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 40),
             mainLosseskStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             mainLosseskStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            mainLosseskStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/6),
-            
-            detailedEquipmentLossesCollectionView.topAnchor.constraint(equalTo: mainLosseskStack.bottomAnchor, constant: 40),
-            detailedEquipmentLossesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            detailedEquipmentLossesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            detailedEquipmentLossesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32)
+            mainLosseskStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/3),
         ]
         
         landscapeConst = [
             
-            dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
@@ -160,35 +118,38 @@ class EquipmentDetailsView: UIView {
             dateLabel.leadingAnchor.constraint(equalTo: dayLabel.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: dayLabel.trailingAnchor),
             
-            mainLosseskStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            mainLosseskStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),
             mainLosseskStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             mainLosseskStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            mainLosseskStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/2.5),
-            
-            detailedEquipmentLossesCollectionView.topAnchor.constraint(equalTo: mainLosseskStack.bottomAnchor, constant: 16),
-            detailedEquipmentLossesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            detailedEquipmentLossesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            detailedEquipmentLossesCollectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/3.5),
-            detailedEquipmentLossesCollectionView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
+            mainLosseskStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6),
         ]
     }
     
     
-    func configure(with equipment: Equipment) {
+    func configure(with personnel: Personnel) {
         
-        dayLabel.text = "Day \(equipment.day)"
+        if let day = personnel.day {
+            dayLabel.text = "Day \(day)"
+        }
         
-        let result = getFormattedData(for: equipment.date)
+        let result = getFormattedData(for: personnel.date)
         if case let .success(formattedDate) = result {
             dateLabel.text = formattedDate
         }
         
-        tanksView.numberOfLossesLabel.text = "\(equipment.tank)"
-        helicoptersView.numberOfLossesLabel.text = "\(equipment.helicopter)"
-        aircraftsView.numberOfLossesLabel.text = "\(equipment.aircraft)"
-        artillerySystemsView.numberOfLossesLabel.text = "\(equipment.fieldArtillery)"
+        if let personnel = personnel.personnel {
+            personnelView.numberOfLossesLabel.text = "\(personnel)"
+        }
         
+        if let pow = personnel.pow {
+            powView.isHidden = false
+            powView.numberOfLossesLabel.text = "\(pow)"
+        } else {
+            powView.isHidden = true
+        }
     }
+    
+    
     
     func getFormattedData(for date: String) -> Result<String, Error> {
         let dateFormatter = DateFormatter()
@@ -230,4 +191,5 @@ class EquipmentDetailsView: UIView {
             NSLayoutConstraint.activate(portraitConst)
         }
     }
+    
 }
