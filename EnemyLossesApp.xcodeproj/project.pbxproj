@@ -13,6 +13,15 @@
 		CE2B09472A98DA9500E62E01 /* EquipmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B09462A98DA9500E62E01 /* EquipmentService.swift */; };
 		CE2B09492A99171B00E62E01 /* PersonnelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B09482A99171B00E62E01 /* PersonnelService.swift */; };
 		CE2B094D2A99236500E62E01 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2B094C2A99236500E62E01 /* DateTableViewCell.swift */; };
+		CE2E27A52A9A43EB00AC2EFC /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27A42A9A43EB00AC2EFC /* CoordinatorProtocol.swift */; };
+		CE2E27A82A9A452F00AC2EFC /* EquipmentDetailsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27A72A9A452F00AC2EFC /* EquipmentDetailsViewCoordinator.swift */; };
+		CE2E27AA2A9A457300AC2EFC /* EquipmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27A92A9A457300AC2EFC /* EquipmentDetailsViewController.swift */; };
+		CE2E27AC2A9A464600AC2EFC /* EquipmentDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27AB2A9A464600AC2EFC /* EquipmentDetailsViewModel.swift */; };
+		CE2E27AF2A9A5DAE00AC2EFC /* EquipmentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27AE2A9A5DAE00AC2EFC /* EquipmentDetailsView.swift */; };
+		CE2E27B22A9A66E900AC2EFC /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27B12A9A66E900AC2EFC /* GlobalColor.swift */; };
+		CE2E27B42A9A911300AC2EFC /* MainStackElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27B32A9A911300AC2EFC /* MainStackElementView.swift */; };
+		CE2E27B62A9AA9E100AC2EFC /* EquipmentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27B52A9AA9E100AC2EFC /* EquipmentDataModel.swift */; };
+		CE2E27B82A9AB9D800AC2EFC /* EquipmentDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E27B72A9AB9D800AC2EFC /* EquipmentDataTableViewCell.swift */; };
 		CE633A792A97AF5300BB521A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633A782A97AF5300BB521A /* AppDelegate.swift */; };
 		CE633A7B2A97AF5300BB521A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633A7A2A97AF5300BB521A /* SceneDelegate.swift */; };
 		CE633A822A97AF5600BB521A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE633A812A97AF5600BB521A /* Assets.xcassets */; };
@@ -35,6 +44,15 @@
 		CE2B09462A98DA9500E62E01 /* EquipmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentService.swift; sourceTree = "<group>"; };
 		CE2B09482A99171B00E62E01 /* PersonnelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelService.swift; sourceTree = "<group>"; };
 		CE2B094C2A99236500E62E01 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
+		CE2E27A42A9A43EB00AC2EFC /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		CE2E27A72A9A452F00AC2EFC /* EquipmentDetailsViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailsViewCoordinator.swift; sourceTree = "<group>"; };
+		CE2E27A92A9A457300AC2EFC /* EquipmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailsViewController.swift; sourceTree = "<group>"; };
+		CE2E27AB2A9A464600AC2EFC /* EquipmentDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailsViewModel.swift; sourceTree = "<group>"; };
+		CE2E27AE2A9A5DAE00AC2EFC /* EquipmentDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailsView.swift; sourceTree = "<group>"; };
+		CE2E27B12A9A66E900AC2EFC /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
+		CE2E27B32A9A911300AC2EFC /* MainStackElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackElementView.swift; sourceTree = "<group>"; };
+		CE2E27B52A9AA9E100AC2EFC /* EquipmentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDataModel.swift; sourceTree = "<group>"; };
+		CE2E27B72A9AB9D800AC2EFC /* EquipmentDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDataTableViewCell.swift; sourceTree = "<group>"; };
 		CE633A752A97AF5300BB521A /* EnemyLossesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnemyLossesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE633A782A97AF5300BB521A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE633A7A2A97AF5300BB521A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +94,7 @@
 			children = (
 				CE2B093F2A98CCEB00E62E01 /* EquipmentModel.swift */,
 				CE2B09422A98D5B300E62E01 /* PersonnelModel.swift */,
+				CE2E27B52A9AA9E100AC2EFC /* EquipmentDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,6 +123,43 @@
 			path = CustomUI;
 			sourceTree = "<group>";
 		};
+		CE2E27A32A9A43D900AC2EFC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E27A42A9A43EB00AC2EFC /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CE2E27A62A9A44F700AC2EFC /* DetailsEquipment */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E27A72A9A452F00AC2EFC /* EquipmentDetailsViewCoordinator.swift */,
+				CE2E27A92A9A457300AC2EFC /* EquipmentDetailsViewController.swift */,
+				CE2E27AB2A9A464600AC2EFC /* EquipmentDetailsViewModel.swift */,
+				CE2E27AD2A9A470300AC2EFC /* CustomUI */,
+			);
+			path = DetailsEquipment;
+			sourceTree = "<group>";
+		};
+		CE2E27AD2A9A470300AC2EFC /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E27AE2A9A5DAE00AC2EFC /* EquipmentDetailsView.swift */,
+				CE2E27B32A9A911300AC2EFC /* MainStackElementView.swift */,
+				CE2E27B72A9AB9D800AC2EFC /* EquipmentDataTableViewCell.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		CE2E27B02A9A66D400AC2EFC /* GlobalColors */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E27B12A9A66E900AC2EFC /* GlobalColor.swift */,
+			);
+			path = GlobalColors;
+			sourceTree = "<group>";
+		};
 		CE633A6C2A97AF5300BB521A = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +183,7 @@
 				CE633A7A2A97AF5300BB521A /* SceneDelegate.swift */,
 				CE633A8C2A97B02500BB521A /* Bussiness */,
 				CE633A8D2A97B02F00BB521A /* UI */,
+				CE2E27B02A9A66D400AC2EFC /* GlobalColors */,
 				CE633A812A97AF5600BB521A /* Assets.xcassets */,
 				CE633A832A97AF5600BB521A /* LaunchScreen.storyboard */,
 				CE633A862A97AF5600BB521A /* Info.plist */,
@@ -137,6 +194,7 @@
 		CE633A8C2A97B02500BB521A /* Bussiness */ = {
 			isa = PBXGroup;
 			children = (
+				CE2E27A32A9A43D900AC2EFC /* Coordinator */,
 				CE2B09442A98DA6B00E62E01 /* EquipmentData */,
 				CE2B09452A98DA7700E62E01 /* PersonnelData */,
 				CE2B09412A98CCF500E62E01 /* Models */,
@@ -151,6 +209,7 @@
 				CE633A8E2A97B03700BB521A /* Main */,
 				CE633A8F2A97B03D00BB521A /* Equipment */,
 				CE633A902A97B04600BB521A /* Personnel */,
+				CE2E27A62A9A44F700AC2EFC /* DetailsEquipment */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -256,20 +315,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2E27B62A9AA9E100AC2EFC /* EquipmentDataModel.swift in Sources */,
+				CE2E27AA2A9A457300AC2EFC /* EquipmentDetailsViewController.swift in Sources */,
+				CE2E27B22A9A66E900AC2EFC /* GlobalColor.swift in Sources */,
+				CE2E27A82A9A452F00AC2EFC /* EquipmentDetailsViewCoordinator.swift in Sources */,
 				CE633A922A97B52C00BB521A /* MainViewCoordinator.swift in Sources */,
 				CE2B09472A98DA9500E62E01 /* EquipmentService.swift in Sources */,
 				CE633A792A97AF5300BB521A /* AppDelegate.swift in Sources */,
 				CE2B09402A98CCEB00E62E01 /* EquipmentModel.swift in Sources */,
 				CE633A7B2A97AF5300BB521A /* SceneDelegate.swift in Sources */,
 				CE2B09432A98D5B300E62E01 /* PersonnelModel.swift in Sources */,
+				CE2E27B82A9AB9D800AC2EFC /* EquipmentDataTableViewCell.swift in Sources */,
 				CE2B094D2A99236500E62E01 /* DateTableViewCell.swift in Sources */,
 				CE633A942A97B54E00BB521A /* MainViewController.swift in Sources */,
 				CE633AA32A97B68800BB521A /* PersonnelViewController.swift in Sources */,
 				CE2B09492A99171B00E62E01 /* PersonnelService.swift in Sources */,
+				CE2E27B42A9A911300AC2EFC /* MainStackElementView.swift in Sources */,
 				CE633A9D2A97B5F500BB521A /* EquipmentViewController.swift in Sources */,
+				CE2E27AC2A9A464600AC2EFC /* EquipmentDetailsViewModel.swift in Sources */,
+				CE2E27AF2A9A5DAE00AC2EFC /* EquipmentDetailsView.swift in Sources */,
 				CE633AA12A97B63100BB521A /* PersonnelViewModel.swift in Sources */,
 				CE633A962A97B55900BB521A /* MainViewModel.swift in Sources */,
 				CE633A992A97B5B500BB521A /* EquipmentViewCoordinator.swift in Sources */,
+				CE2E27A52A9A43EB00AC2EFC /* CoordinatorProtocol.swift in Sources */,
 				CE633A9F2A97B61D00BB521A /* PersonnelViewCoordinator.swift in Sources */,
 				CE2B093E2A98CC5900E62E01 /* NetworkService.swift in Sources */,
 				CE633A9B2A97B5E400BB521A /* EquipmentViewModel.swift in Sources */,

@@ -18,6 +18,12 @@ class EquipmentViewCoordinator: Coordinator {
     func start() {
         let equipmentViewModel = EquipmentViewModel()
         
+        equipmentViewModel.showDetails = { equipment in
+            let equipmentDetailsViewModel = EquipmentDetailsViewModel(equipmenData: equipment)
+            let equipmentDetaisCoordinator = EquipmentDetailsViewCoordinator(navigationController: self.navigationController, viewModel: equipmentDetailsViewModel)
+            equipmentDetaisCoordinator.start()
+        }
+        
         let equipmentViewController: EquipmentViewController = {
             let equipmentViewController = EquipmentViewController(viewModel: equipmentViewModel)
             return equipmentViewController
