@@ -75,6 +75,11 @@ extension EquipmentDetailsViewController: UICollectionViewDataSource {
 
 extension EquipmentDetailsViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (detailsCollectionView.frame.size.width / 2) - 16, height: 40)
+        
+        if (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .regular) || (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .compact) {
+            return CGSize(width: (detailsCollectionView.frame.size.width / 4) - 16, height: 40)
+        } else {
+            return CGSize(width: (detailsCollectionView.frame.size.width / 2) - 16, height: 40)
+        }
     }
 }

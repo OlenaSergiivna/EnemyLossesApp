@@ -26,8 +26,22 @@ class PersonnelViewCoordinator: Coordinator {
         
         let personnelViewController: PersonnelViewController = {
             let personnelViewController = PersonnelViewController(viewModel: personnelViewModel)
+            personnelViewController.title = "Personnel losses"
+            personnelViewController.navigationItem.largeTitleDisplayMode = .always
+            
+            let barAppearance = UINavigationBarAppearance()
+            barAppearance.backgroundColor = GlobalColor.darkMilitary
+            barAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            barAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            
+            personnelViewController.navigationItem.standardAppearance = barAppearance
+            personnelViewController.navigationItem.scrollEdgeAppearance = barAppearance
+            
             return personnelViewController
         }()
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationItem.largeTitleDisplayMode = .always
         
         navigationController.pushViewController(personnelViewController, animated: true)
     }

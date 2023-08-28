@@ -9,6 +9,31 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    let logoView: UIImageView = {
+        let logoView = UIImageView()
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        logoView.image = UIImage(named: "zsu_logo_crop")?.withTintColor(GlobalColor.darkMilitary)
+        return logoView
+    }()
+    
+    
+    let topTextLabel: UILabel = {
+        let topTextLabel = UILabel()
+        topTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        topTextLabel.font = .systemFont(ofSize: 30, weight: .semibold)
+        topTextLabel.textColor = GlobalColor.globalOrange
+        topTextLabel.textAlignment = .left
+        topTextLabel.numberOfLines = 2
+        
+        let text = "Approximate enemy losses\nin the russia-Ukraine war"
+        let attrText = text.withAttributedText(text: "russia-Ukraine war", weight: .semibold, color: .white)
+        topTextLabel.attributedText = attrText
+        
+        return topTextLabel
+    }()
+    
+    
     let equipmentButton: UIButton = {
         let equipmentButton = UIButton()
         equipmentButton.translatesAutoresizingMaskIntoConstraints = false
@@ -24,10 +49,10 @@ class MainViewController: UIViewController {
         buttonConfiguration.attributedTitle = attText
         
         var background = buttonConfiguration.background
-        background.backgroundColor = UIColor(red: 79/255, green: 70/255, blue: 52/255, alpha: 1)
+        background.backgroundColor = GlobalColor.lightMilitary
         background.cornerRadius = 20
         background.strokeWidth = 2
-        background.strokeColor = UIColor(red: 255/255, green: 140/255, blue: 9/255, alpha: 1)
+        background.strokeColor = GlobalColor.globalOrange
         buttonConfiguration.background = background
         
         equipmentButton.configuration = buttonConfiguration
@@ -51,10 +76,10 @@ class MainViewController: UIViewController {
         buttonConfiguration.attributedTitle = attText
         
         var background = buttonConfiguration.background
-        background.backgroundColor = UIColor(red: 79/255, green: 70/255, blue: 52/255, alpha: 1)
+        background.backgroundColor = GlobalColor.lightMilitary
         background.cornerRadius = 20
         background.strokeWidth = 2
-        background.strokeColor = UIColor(red: 255/255, green: 140/255, blue: 9/255, alpha: 1)
+        background.strokeColor = GlobalColor.globalOrange
         buttonConfiguration.background = background
         
         personnelButton.configuration = buttonConfiguration
@@ -74,6 +99,11 @@ class MainViewController: UIViewController {
         return buttonsStack
     }()
     
+    
+    private var portraitConst: [NSLayoutConstraint] = []
+    private var landscapeConst: [NSLayoutConstraint] = []
+    
+    
     private let viewModel: MainViewModel
     
     public init(viewModel: MainViewModel) {
@@ -90,14 +120,26 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor(red: 69/255, green: 62/255, blue: 46/255, alpha: 1)
         
+        view.backgroundColor = GlobalColor.lightMilitary
+        
+        view.addSubview(logoView)
+        view.addSubview(topTextLabel)
         view.addSubview(buttonsStack)
         buttonsStack.addArrangedSubview(equipmentButton)
         buttonsStack.addArrangedSubview(personnelButton)
         
         configureConstraints()
+        
+        if (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .regular) || (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .compact) {
+            
+            buttonsStack.spacing = 16
+            NSLayoutConstraint.activate(landscapeConst)
+            
+        } else {
+            buttonsStack.spacing = 32
+            NSLayoutConstraint.activate(portraitConst)
+        }
         
         equipmentButton.addTarget(self, action: #selector(equipmentButtonPressed(_:)), for: .touchUpInside)
         personnelButton.addTarget(self, action: #selector(personnelButtonPressed(_:)), for: .touchUpInside)
@@ -106,13 +148,39 @@ class MainViewController: UIViewController {
     
     func configureConstraints() {
         
-        NSLayoutConstraint.activate([
+        portraitConst = [
             
             buttonsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonsStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             buttonsStack.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/3),
-            buttonsStack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/2)
-        ])
+            buttonsStack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/2),
+            
+            logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1),
+            logoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            topTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            topTextLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            topTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            topTextLabel.bottomAnchor.constraint(lessThanOrEqualTo: buttonsStack.topAnchor, constant: -16)
+        ]
+        
+        landscapeConst = [
+            
+            buttonsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonsStack.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/2),
+            buttonsStack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/2.5),
+            buttonsStack.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -16),
+            
+            logoView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            logoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            logoView.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            
+            topTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            topTextLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            topTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            topTextLabel.bottomAnchor.constraint(equalTo: buttonsStack.topAnchor, constant: -16)
+        ]
     }
     
     
@@ -124,5 +192,21 @@ class MainViewController: UIViewController {
     @objc func personnelButtonPressed(_ sender: UIButton) {
         guard let showPersonnelScreen = viewModel.showPersonnelScreen else { return }
         showPersonnelScreen()
+    }
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        
+        if (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .regular) || (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .compact) {
+            
+            NSLayoutConstraint.deactivate(portraitConst)
+            buttonsStack.spacing = 16
+            NSLayoutConstraint.activate(landscapeConst)
+            
+        } else {
+            NSLayoutConstraint.deactivate(landscapeConst)
+            buttonsStack.spacing = 32
+            NSLayoutConstraint.activate(portraitConst)
+        }
     }
 }

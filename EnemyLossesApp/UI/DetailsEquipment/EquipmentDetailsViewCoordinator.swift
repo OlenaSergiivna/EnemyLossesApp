@@ -20,6 +20,8 @@ class EquipmentDetailsViewCoordinator: Coordinator {
     func start() {
         
         let equipmentViewController = EquipmentDetailsViewController(viewModel: self.viewModel)
+        equipmentViewController.navigationItem.largeTitleDisplayMode = .never
+        
         navigationController.pushViewController(equipmentViewController, animated: true)
     }
 }

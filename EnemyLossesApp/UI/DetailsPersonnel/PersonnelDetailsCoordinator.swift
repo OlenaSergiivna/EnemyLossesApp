@@ -20,6 +20,8 @@ class PersonnelDetailsViewCoordinator {
     func start() {
         
         let personnelViewController = PersonnelDetailsViewController(viewModel: self.viewModel)
+        personnelViewController.navigationItem.largeTitleDisplayMode = .never
+        
         navigationController.pushViewController(personnelViewController, animated: true)
     }
 }

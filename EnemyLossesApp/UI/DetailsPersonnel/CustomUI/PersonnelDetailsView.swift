@@ -20,6 +20,15 @@ class PersonnelDetailsView: UIView {
     }()
     
     
+    let logoImage: UIImageView = {
+        let logoImage = UIImageView()
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        logoImage.image = UIImage(named: "zsu_logo")?.withTintColor(GlobalColor.globalOrange)
+        
+        return logoImage
+    }()
+    
+    
     let dateLabel: UILabel = {
         let dateLabel = UILabel()
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +78,7 @@ class PersonnelDetailsView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(dayLabel)
+        addSubview(logoImage)
         addSubview(dateLabel)
         addSubview(mainLosseskStack)
         mainLosseskStack.addArrangedSubview(personnelView)
@@ -95,11 +105,16 @@ class PersonnelDetailsView: UIView {
         portraitConst = [
             
             dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            dayLabel.leadingAnchor.constraint(equalTo: logoImage.trailingAnchor, constant: 8),
+            dayLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            logoImage.heightAnchor.constraint(equalTo: dayLabel.heightAnchor, multiplier: 0.7),
+            logoImage.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            logoImage.widthAnchor.constraint(equalTo: logoImage.heightAnchor, multiplier: 0.8),
+            logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             dateLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 8),
-            dateLabel.leadingAnchor.constraint(equalTo: dayLabel.leadingAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: logoImage.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: dayLabel.trailingAnchor),
             
             mainLosseskStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 40),
@@ -111,11 +126,16 @@ class PersonnelDetailsView: UIView {
         landscapeConst = [
             
             dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            dayLabel.leadingAnchor.constraint(equalTo: logoImage.trailingAnchor, constant: 8),
+            dayLabel.heightAnchor.constraint(equalToConstant: 40),
+
+            logoImage.heightAnchor.constraint(equalTo: dayLabel.heightAnchor, multiplier: 0.7),
+            logoImage.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            logoImage.widthAnchor.constraint(equalTo: logoImage.heightAnchor, multiplier: 0.8),
+            logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             dateLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 8),
-            dateLabel.leadingAnchor.constraint(equalTo: dayLabel.leadingAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: logoImage.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: dayLabel.trailingAnchor),
             
             mainLosseskStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 16),

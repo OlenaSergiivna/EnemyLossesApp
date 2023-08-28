@@ -26,10 +26,22 @@ class EquipmentViewCoordinator: Coordinator {
         
         let equipmentViewController: EquipmentViewController = {
             let equipmentViewController = EquipmentViewController(viewModel: equipmentViewModel)
+            equipmentViewController.title = "Equipment losses"
+            equipmentViewController.navigationItem.largeTitleDisplayMode = .always
+            
+            let barAppearance = UINavigationBarAppearance()
+            barAppearance.backgroundColor = GlobalColor.darkMilitary
+            barAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            barAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            
+            equipmentViewController.navigationItem.standardAppearance = barAppearance
+            equipmentViewController.navigationItem.scrollEdgeAppearance = barAppearance
             return equipmentViewController
         }()
         
-        navigationController.pushViewController(equipmentViewController, animated: true)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationItem.largeTitleDisplayMode = .always
         
+        navigationController.pushViewController(equipmentViewController, animated: true)
     }
 }

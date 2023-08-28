@@ -15,8 +15,18 @@ class EquipmentDetailsView: UIView {
         dayLabel.textAlignment = .left
         dayLabel.font = .systemFont(ofSize: 40, weight: .semibold)
         dayLabel.textColor = GlobalColor.globalOrange
-        
+        dayLabel.adjustsFontSizeToFitWidth = true
+
         return dayLabel
+    }()
+    
+    
+    let logoImage: UIImageView = {
+        let logoImage = UIImageView()
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        logoImage.image = UIImage(named: "zsu_logo")?.withTintColor(GlobalColor.globalOrange)
+        
+        return logoImage
     }()
     
     
@@ -101,6 +111,7 @@ class EquipmentDetailsView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(dayLabel)
+        addSubview(logoImage)
         addSubview(dateLabel)
         addSubview(mainLosseskStack)
         
@@ -132,11 +143,16 @@ class EquipmentDetailsView: UIView {
         
         portraitConst = [
             dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            dayLabel.leadingAnchor.constraint(equalTo: logoImage.trailingAnchor, constant: 8),
+            dayLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            logoImage.heightAnchor.constraint(equalTo: dayLabel.heightAnchor, multiplier: 0.7),
+            logoImage.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            logoImage.widthAnchor.constraint(equalTo: logoImage.heightAnchor, multiplier: 0.8),
+            logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             dateLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 8),
-            dateLabel.leadingAnchor.constraint(equalTo: dayLabel.leadingAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: logoImage.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: dayLabel.trailingAnchor),
             
             mainLosseskStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 40),
@@ -147,17 +163,22 @@ class EquipmentDetailsView: UIView {
             detailedEquipmentLossesCollectionView.topAnchor.constraint(equalTo: mainLosseskStack.bottomAnchor, constant: 40),
             detailedEquipmentLossesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             detailedEquipmentLossesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            detailedEquipmentLossesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32)
+            detailedEquipmentLossesCollectionView.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor, constant: -32)
         ]
         
         landscapeConst = [
             
             dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            dayLabel.leadingAnchor.constraint(equalTo: logoImage.trailingAnchor, constant: 8),
+            dayLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            logoImage.heightAnchor.constraint(equalTo: dayLabel.heightAnchor, multiplier: 0.7),
+            logoImage.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            logoImage.widthAnchor.constraint(equalTo: logoImage.heightAnchor, multiplier: 0.8),
+            logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             dateLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 8),
-            dateLabel.leadingAnchor.constraint(equalTo: dayLabel.leadingAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: logoImage.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: dayLabel.trailingAnchor),
             
             mainLosseskStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
@@ -217,6 +238,7 @@ class EquipmentDetailsView: UIView {
     
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
         
         if (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .regular) || (traitCollection.verticalSizeClass == .compact && traitCollection.horizontalSizeClass == .compact) {
             
